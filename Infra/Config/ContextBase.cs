@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Config
 {
@@ -7,11 +8,15 @@ namespace Infra.Config
         public ContextBase(DbContextOptions<ContextBase> optionsBuilder) : base(optionsBuilder)
         {
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseSqlServer(StringConnectionConfig());
         }
+
+        public DbSet<Usuario> Usuario { get; set; }
+
         public static string StringConnectionConfig()
         {
             string connectionString = @"Data Source=RAFAEL-PC\SQLEXPRESS;

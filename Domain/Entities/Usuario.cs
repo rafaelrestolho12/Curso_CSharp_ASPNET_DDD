@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
@@ -7,11 +8,11 @@ namespace Domain.Entities
     public class Usuario
     {
         [Column("Id")]
-        [Display(Description = "Código")]
+        [DisplayName("#")]
         public int Id { get; set; }
 
         [Column("NomeUsuario")]
-        [Display(Description = "Nome do usuário")]
+        [DisplayName("Nome do usuário")]
         public string? NomeUsuario { get; set; }
     }
 }
